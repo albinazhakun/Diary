@@ -19,12 +19,12 @@ namespace Diary.EntityClass
         public bool IsPast =>
             Date < DateOnly.FromDateTime(DateTime.Now) ||
             (Date == DateOnly.FromDateTime(DateTime.Now) && EndTime < TimeOnly.FromDateTime(DateTime.Now));
-        
+
     }
     public enum Prior
     {
         Low,
         Medium,
-        High 
+        High
     }
 }
