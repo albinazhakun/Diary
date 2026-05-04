@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button1 = new Button();
             button5 = new Button();
             button4 = new Button();
             button3 = new Button();
@@ -39,9 +40,10 @@
             textBox1 = new TextBox();
             panel3 = new Panel();
             panel2 = new Panel();
-            button1 = new Button();
+            dataGridViewEvents = new DataGridView();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEvents).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -59,6 +61,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(244, 668);
             panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Bisque;
+            button1.Location = new Point(-3, 100);
+            button1.Name = "button1";
+            button1.Size = new Size(244, 47);
+            button1.TabIndex = 12;
+            button1.Text = "Усі справи";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += buttonAllEvents_Click;
             // 
             // button5
             // 
@@ -162,18 +178,15 @@
             panel2.Size = new Size(967, 72);
             panel2.TabIndex = 1;
             // 
-            // button1
+            // dataGridViewEvents
             // 
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Bisque;
-            button1.Location = new Point(-3, 100);
-            button1.Name = "button1";
-            button1.Size = new Size(244, 47);
-            button1.TabIndex = 12;
-            button1.Text = "Усі справи";
-            button1.UseVisualStyleBackColor = true;
+            dataGridViewEvents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewEvents.Dock = DockStyle.Fill;
+            dataGridViewEvents.Location = new Point(244, 72);
+            dataGridViewEvents.Name = "dataGridViewEvents";
+            dataGridViewEvents.RowHeadersWidth = 51;
+            dataGridViewEvents.Size = new Size(967, 596);
+            dataGridViewEvents.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -181,6 +194,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(207, 187, 153);
             ClientSize = new Size(1211, 668);
+            Controls.Add(dataGridViewEvents);
             Controls.Add(panel2);
             Controls.Add(panel1);
             ForeColor = Color.LightSalmon;
@@ -190,6 +204,7 @@
             panel1.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEvents).EndInit();
             ResumeLayout(false);
         }
 
@@ -208,5 +223,6 @@
         private Button button3;
         private Button buttonAllEvents;
         private Button button1;
+        private DataGridView dataGridViewEvents;
     }
 }

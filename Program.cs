@@ -1,3 +1,6 @@
+using Diary.Logic;
+using Diary.Storage;
+using Diary.UI;
 namespace Diary
 {
     internal static class Program
@@ -11,7 +14,12 @@ namespace Diary
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            Data storage = new();
+            EventLogic eventLogic = new(storage);
+            CategoryLogic categoryLogic = new(storage);
+            OverlaysLogic overlaysLogic = new();
+            RemindLogic remindLogic = new(eventLogic);
+            Application.Run(new MainForm(eventLogic, categoryLogic, overlaysLogic, remindLogic));
         }
     }
 }
