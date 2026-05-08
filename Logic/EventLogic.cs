@@ -10,18 +10,18 @@ namespace Diary.Logic
 {
     public class EventLogic
     {
-        private readonly Data memory;
+        private readonly DataStorage memory;
         private List<Event> events;
-        public EventLogic(Data storage)
+        public EventLogic(DataStorage storag)
         {
-            memory = storage;
+            memory = storag;
             events = memory.LoadEvents();
         }
         public void Add(Event eve)
         {
             events.Add(eve);
             memory.SaveEvents(events);
-
+            MessageBox.Show($"Збережено у: {memory.EventsPath}");
         }
         public void Delete(Guid id)
         {

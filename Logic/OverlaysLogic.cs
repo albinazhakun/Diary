@@ -5,7 +5,6 @@ using Diary.EntityClass;
 
 namespace Diary.Logic
 {
-
     public class OverlaysResult
     {
         public Event EventA { get; }

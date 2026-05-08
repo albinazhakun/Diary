@@ -14,12 +14,12 @@ namespace Diary
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Data storage = new();
+            DataStorage storage = new();
             EventLogic eventLogic = new(storage);
             CategoryLogic categoryLogic = new(storage);
             OverlaysLogic overlaysLogic = new();
             RemindLogic remindLogic = new(eventLogic);
-            Application.Run(new MainForm(eventLogic, categoryLogic, overlaysLogic, remindLogic));
+            Application.Run(new MainForm(eventLogic, categoryLogic, remindLogic, overlaysLogic));
         }
     }
 }

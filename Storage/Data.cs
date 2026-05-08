@@ -7,9 +7,9 @@ using Diary.EntityClass;
 
 namespace Diary.Storage
 {
-    public class Data
+    public class DataStorage
     {
-        private readonly string eventsPath;
+        public readonly string eventsPath;
         private readonly string categoryPath;
         private readonly JsonSerializerOptions optn = new()
         {
@@ -19,14 +19,14 @@ namespace Diary.Storage
                 new JsonStringEnumConverter()
             }
         };
-        public Data()
+        public DataStorage()
         {
             string folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Diary");
             Directory.CreateDirectory(folder);
             eventsPath = Path.Combine(folder, "events.json");
             categoryPath = Path.Combine(folder, "categories.json");
         }
-
+        public string EventsPath => eventsPath;
         public List<Event> LoadEvents()
         {
             if (!File.Exists(eventsPath))

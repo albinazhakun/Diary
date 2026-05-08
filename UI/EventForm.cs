@@ -22,11 +22,11 @@ namespace Diary.UI
             categories = categ;
             Text = "Додавання справи";
         }
-        public EventForm(List<Category> categ, Event editTarget)
+        public EventForm(List<Category> categ, Event editTarg)
         {
             InitializeComponent();
             categories = categ;
-            editTarget = editTarget;
+            editTarget = editTarg;
             Text = "Редагування справи";
         }
         private void EventForm_Load(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace Diary.UI
                 comboBoxPriority.SelectedIndex = (int)editTarget.Priority;
                 if (editTarget.CategoryId.HasValue)
                 {
-                    Category? cat = _categories.FirstOrDefault(c => c.Id == editTarget.CategoryId);
+                    Category? cat = categories.FirstOrDefault(c => c.Id == editTarget.CategoryId);
                     if (cat is not null)
                         comboBoxCategory.SelectedItem = cat;
                 }
@@ -98,6 +98,11 @@ namespace Diary.UI
 
             }
             return true;
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,12 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "OverlaysForm";
+            labelResult = new Label();
+            listBoxOverlaps = new ListBox();
+            buttonClose = new Button();
+            SuspendLayout();
+            // 
+            // labelResult
+            // 
+            labelResult.AutoSize = true;
+            labelResult.Location = new Point(267, 130);
+            labelResult.Name = "labelResult";
+            labelResult.Size = new Size(0, 20);
+            labelResult.TabIndex = 0;
+            // 
+            // listBoxOverlaps
+            // 
+            listBoxOverlaps.FormattingEnabled = true;
+            listBoxOverlaps.Location = new Point(99, 208);
+            listBoxOverlaps.Name = "listBoxOverlaps";
+            listBoxOverlaps.Size = new Size(613, 184);
+            listBoxOverlaps.TabIndex = 1;
+            // 
+            // buttonClose
+            // 
+            buttonClose.Location = new Point(694, 409);
+            buttonClose.Name = "buttonClose";
+            buttonClose.Size = new Size(94, 29);
+            buttonClose.TabIndex = 2;
+            buttonClose.Text = "Закрити";
+            buttonClose.UseVisualStyleBackColor = true;
+            buttonClose.Click += buttonClose_Click;
+            // 
+            // OverlaysForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(buttonClose);
+            Controls.Add(listBoxOverlaps);
+            Controls.Add(labelResult);
+            Name = "OverlaysForm";
+            Text = "OverlaysForm";
+            Load += OverlapForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label labelResult;
+        private ListBox listBoxOverlaps;
+        private Button buttonClose;
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Diary.EntityClass;
 using Diary.Logic;
-using static System.Net.Mime.MediaTypeNames;
+//using static System.Net.Mime.MediaTypeNames;
 
 namespace Diary.UI
 {
@@ -89,7 +89,7 @@ namespace Diary.UI
             cat.Description = string.IsNullOrWhiteSpace(textBoxDescription.Text)
                 ? null : textBoxDescription.Text.TrimEnd();
             cat.Color = textBoxColor.Text;
-            if (editTarget is not null) 
+            if (editTarget is not null)
                 categoryLogic.Update(cat);
             else
                 categoryLogic.Add(cat);
@@ -102,5 +102,6 @@ namespace Diary.UI
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
     }
 }

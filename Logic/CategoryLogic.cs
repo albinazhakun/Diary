@@ -7,19 +7,20 @@ using Diary.Storage;
 
 namespace Diary.Logic
 {
-    internal class CategoryLogic
+    public class CategoryLogic
     {
-        private readonly Data memory;
+        private readonly DataStorage memory;
         private List<Category> category;
-        public CategoryLogic(Data storage)
+        public CategoryLogic(DataStorage storag)
         {
-            memory = storage;
+            memory = storag;
             category = memory.LoadCategory();
         }
         public void Add(Category catego)
         {
             category.Add(catego);
             memory.SaveCategory(category);
+            MessageBox.Show($"Збережено у: {memory.EventsPath}");
         }
         public void Delete(Guid id)
         {

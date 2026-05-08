@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Diary.EntityClass;
 using Diary.Logic;
+using Diary.UI;
 
 namespace Diary
 {
@@ -36,7 +37,7 @@ namespace Diary
             ChecOutDateEve();
             RefreshTable();
         }
-        private void SetupTable() 
+        private void SetupTable()
         {
             dataGridViewEvents.ReadOnly = true;
             dataGridViewEvents.AllowUserToAddRows = false;
@@ -73,7 +74,7 @@ namespace Diary
                     GetCategoryName(ev.CategoryId),
                     GetPriorityText(ev.Priority));
                 dataGridViewEvents.Rows[i].Tag = ev;
-                if(ev.IsPast)
+                if (ev.IsPast)
                 {
                     dataGridViewEvents.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
                 }
@@ -117,7 +118,7 @@ namespace Diary
                 MessageBox.Show("Застарілих справ немає!", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            using OutdatedEventsForm form = new(outdated, eventLogic);
+            using OldEventForm form = new(outdated, eventLogic);
             form.ShowDialog();
             RefreshTable();
         }
@@ -139,6 +140,12 @@ namespace Diary
             selectedDate = null;
             RefreshTable();
         }
+        private void buttonToday_Click(object sender, EventArgs e)
+        {
+            selectedDate = DateOnly.FromDateTime(DateTime.Now);
+            RefreshTable();
+        }
+
         private void buttonTomorrow_Click(object sender, EventArgs e)
         {
             selectedDate = DateOnly.FromDateTime(DateTime.Now.AddDays(1));
@@ -151,13 +158,14 @@ namespace Diary
         }
         private void buttonPickDate_Click(object sender, EventArgs e)
         {
-            using Form pickerForm = new() 
+            using Form pickerForm = new()
             {
                 Text = "Оберіть дату",
                 Size = new Size(280, 110),
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 StartPosition = FormStartPosition.CenterParent,
-                MaximizeBox = false, MinimizeBox = false
+                MaximizeBox = false,
+                MinimizeBox = false
             };
             DateTimePicker picker = new()
             {
@@ -173,7 +181,7 @@ namespace Diary
             pickerForm.Controls.Add(picker);
             pickerForm.Controls.Add(ok);
             pickerForm.AcceptButton = ok;
-            if(pickerForm.ShowDialog() == DialogResult.OK)
+            if (pickerForm.ShowDialog() == DialogResult.OK)
             {
                 selectedDate = DateOnly.FromDateTime(picker.Value);
                 RefreshTable();
@@ -182,7 +190,7 @@ namespace Diary
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             using EventForm form = new(categoryLogic.GetAll());
-            if(form.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
                 eventLogic.Add(form.Result!);
                 RefreshTable();
@@ -194,7 +202,7 @@ namespace Diary
             if (selected is null)
                 return;
             using EventForm form = new(categoryLogic.GetAll(), selected);
-            if(form.ShowDialog() == DialogResult.OK)
+            if (form.ShowDialog() == DialogResult.OK)
             {
                 eventLogic.Update(form.Result!);
                 RefreshTable();
@@ -203,7 +211,7 @@ namespace Diary
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             Event? selected = GetSelectedEvent();
-            if(selected is null)
+            if (selected is null)
                 return;
             DialogResult confirm = MessageBox.Show(
                 $"Ви впевнені що хочете видалити справу \" {selected.Title}\"? Цю дію неможливо скасувати.",
@@ -221,7 +229,7 @@ namespace Diary
                 Invoke(() => OnReminderTriggered(ev));
                 return;
             }
-            using ReminderForm form = new(ev);
+            using RemindForm form = new(ev);
             form.ShowDialog();
         }
         private void ChecOutDateEve()
@@ -229,7 +237,7 @@ namespace Diary
             List<Event> outdated = eventLogic.GetOldDate();
             if (outdated.Count > 0)
                 return;
-            using OutdatedEventsForm form = new(outdaed, eventLogic);
+            using OldEventForm form = new(outdated, eventLogic);
             form.ShowDialog();
             RefreshTable();
         }
@@ -240,7 +248,7 @@ namespace Diary
         }
         private Event? GetSelectedEvent()
         {
-            if(dataGridViewEvents.CurrentRow?.Tag is Event ev)
+            if (dataGridViewEvents.CurrentRow?.Tag is Event ev)
                 return ev;
             MessageBox.Show("Оберіть справу зі списку.", "Увага",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -259,5 +267,6 @@ namespace Diary
             Prior.High => "Високий",
             _ => "Середній"
         };
+
     }
 }
