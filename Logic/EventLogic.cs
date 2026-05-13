@@ -21,7 +21,6 @@ namespace Diary.Logic
         {
             events.Add(eve);
             memory.SaveEvents(events);
-            MessageBox.Show($"Збережено у: {memory.EventsPath}");
         }
         public void Delete(Guid id)
         {
@@ -59,21 +58,30 @@ namespace Diary.Logic
                 eve.RemindShow = true;
             memory.SaveEvents(events);
         }
-        public List<Event> GetAllEvents() => 
-            events.OrderBy(e => e.Date).ThenBy(e => e.Time).ToList();
-        public List<Event> GetOldDate() => 
-            events.Where(e => e.Date < DateOnly.FromDateTime(DateTime.Now)).ToList();
-        public List<Event> GetDate(DateOnly date) => 
-            events.Where(e => e.Date == date).OrderBy(e => e.Time).ToList();
+        public List<Event> GetAllEvents() =>
+            events.OrderByDescending(e => e.Priority).ThenBy(e => e.Date).ThenBy(e => e.Time).ToList();
+        public List<Event> GetOldDate()
+        {
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+            TimeOnly now = TimeOnly.FromDateTime(DateTime.Now);
+            return events.Where(e => e.Date < today || (e.Date == today && e.EndTime < now)).ToList();
+            
+        }
+        public List<Event> GetDate(DateOnly date) =>
+            events.Where(e => e.Date == date).OrderByDescending(e => e.Priority).ThenBy(e => e.Time).ToList();
         public List<Event> Search(string? title, Guid? categoryId)
         {
             IEnumerable<Event> result = events;
             if (!string.IsNullOrWhiteSpace(title))
-                result = result.Where(e => 
-                e.Title.Contains(title, StringComparison.OrdinalIgnoreCase));
+                result = result.Where(e =>
+                    e.Title.Contains(title, StringComparison.OrdinalIgnoreCase));
             if (categoryId.HasValue)
                 result = result.Where(e => e.CategoryId == categoryId);
-            return result.OrderBy(e => e.Date).ThenBy(e => e.Time).ToList();
+            return result
+                .OrderByDescending(e => e.Priority)
+                .ThenBy(e => e.Date)
+                .ThenBy(e => e.Time)
+                .ToList();
         }
         public Event? NextReminder()
         {
@@ -86,7 +94,11 @@ namespace Diary.Logic
         }
         public void DeleteOldDate()
         {
-            events.RemoveAll(e => e.Date < DateOnly.FromDateTime(DateTime.Now));
+            DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+            TimeOnly now = TimeOnly.FromDateTime(DateTime.Now);
+            events.RemoveAll(e =>
+                e.Date < today ||
+                (e.Date == today && e.EndTime < now));
             memory.SaveEvents(events);
         }
     }

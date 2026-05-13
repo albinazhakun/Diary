@@ -38,21 +38,27 @@
             buttonPickColor = new Button();
             buttonOk = new Button();
             buttonCancel = new Button();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
-            label1.Location = new Point(118, 93);
+            label1.Location = new Point(75, 29);
             label1.Name = "label1";
             label1.Size = new Size(67, 24);
             label1.TabIndex = 0;
             label1.Text = "Назва";
+            label1.Click += label1_Click;
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(197, 80);
+            textBoxName.Location = new Point(148, 19);
             textBoxName.Multiline = true;
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(504, 48);
@@ -60,7 +66,7 @@
             // 
             // textBoxDescription
             // 
-            textBoxDescription.Location = new Point(197, 152);
+            textBoxDescription.Location = new Point(148, 110);
             textBoxDescription.Multiline = true;
             textBoxDescription.Name = "textBoxDescription";
             textBoxDescription.Size = new Size(504, 112);
@@ -70,7 +76,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
-            label2.Location = new Point(129, 194);
+            label2.Location = new Point(86, 148);
             label2.Name = "label2";
             label2.Size = new Size(56, 24);
             label2.TabIndex = 3;
@@ -80,7 +86,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Bahnschrift SemiBold", 12F, FontStyle.Bold);
-            label3.Location = new Point(124, 314);
+            label3.Location = new Point(148, 260);
             label3.Name = "label3";
             label3.Size = new Size(61, 24);
             label3.TabIndex = 4;
@@ -88,7 +94,7 @@
             // 
             // textBoxColor
             // 
-            textBoxColor.Location = new Point(197, 315);
+            textBoxColor.Location = new Point(279, 262);
             textBoxColor.Name = "textBoxColor";
             textBoxColor.ReadOnly = true;
             textBoxColor.Size = new Size(177, 27);
@@ -96,14 +102,14 @@
             // 
             // panelColorPreview
             // 
-            panelColorPreview.Location = new Point(412, 314);
+            panelColorPreview.Location = new Point(229, 260);
             panelColorPreview.Name = "panelColorPreview";
             panelColorPreview.Size = new Size(30, 30);
             panelColorPreview.TabIndex = 6;
             // 
             // buttonPickColor
             // 
-            buttonPickColor.Location = new Point(225, 365);
+            buttonPickColor.Location = new Point(475, 261);
             buttonPickColor.Name = "buttonPickColor";
             buttonPickColor.Size = new Size(177, 29);
             buttonPickColor.TabIndex = 7;
@@ -113,7 +119,8 @@
             // 
             // buttonOk
             // 
-            buttonOk.Location = new Point(694, 409);
+            buttonOk.Anchor = AnchorStyles.Top;
+            buttonOk.Location = new Point(678, 13);
             buttonOk.Name = "buttonOk";
             buttonOk.Size = new Size(94, 29);
             buttonOk.TabIndex = 8;
@@ -123,7 +130,8 @@
             // 
             // buttonCancel
             // 
-            buttonCancel.Location = new Point(594, 409);
+            buttonCancel.Anchor = AnchorStyles.Top;
+            buttonCancel.Location = new Point(578, 13);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(94, 29);
             buttonCancel.TabIndex = 9;
@@ -131,26 +139,59 @@
             buttonCancel.UseVisualStyleBackColor = true;
             buttonCancel.Click += buttonCancel_Click;
             // 
+            // panel1
+            // 
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(769, 74);
+            panel1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(buttonOk);
+            panel2.Controls.Add(buttonCancel);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 469);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(769, 54);
+            panel2.TabIndex = 11;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(87, 77, 87);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(panelColorPreview);
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(textBoxName);
+            panel3.Controls.Add(textBoxDescription);
+            panel3.Controls.Add(buttonPickColor);
+            panel3.Controls.Add(textBoxColor);
+            panel3.Controls.Add(label3);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(0, 74);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(769, 395);
+            panel3.TabIndex = 12;
+            // 
             // CategoryForm
             // 
+            AcceptButton = buttonOk;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(buttonCancel);
-            Controls.Add(buttonOk);
-            Controls.Add(buttonPickColor);
-            Controls.Add(panelColorPreview);
-            Controls.Add(textBoxColor);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(textBoxDescription);
-            Controls.Add(textBoxName);
-            Controls.Add(label1);
+            BackColor = Color.FromArgb(72, 64, 72);
+            CancelButton = buttonCancel;
+            ClientSize = new Size(769, 523);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Name = "CategoryForm";
             Text = "CategoryForm";
             Load += CategoryForm_Load;
+            panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -165,5 +206,8 @@
         private Button buttonPickColor;
         private Button buttonOk;
         private Button buttonCancel;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
     }
 }

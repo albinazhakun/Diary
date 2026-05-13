@@ -25,12 +25,17 @@ namespace Diary.UI
                 return;
             }
             labelResult.Text = $"Виявлено накладок: {overlap.Count}";
+            static string Short(string s) => s.Length > 25 ? s[..25] + "…" : s;
             foreach (OverlaysResult o in overlap)
                 listBoxOverlaps.Items.Add(
-                    $"«{o.EventA.Title}» ({o.EventA.Time:HH:mm}) та " +
-                    $"«{o.EventB.Title}» ({o.EventB.Time:HH:mm}) — {o.OverlaysMinut} хв.");
+                    $"«{Short(o.EventA.Title)}» ({o.EventA.Time:HH:mm}) та " +
+                    $"«{Short(o.EventB.Title)}» ({o.EventB.Time:HH:mm}) - {o.OverlaysMinut} хв.");
         }
         private void buttonClose_Click(object sender, EventArgs e) => Close();
-    
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -22,8 +22,9 @@ namespace Diary.UI
         }
         private void OlddatedEventsForm_Load(object sender, EventArgs e)
         {
+            static string Short(string s) => s.Length > 30 ? s[..30] + "…" : s;
             foreach (Event ev in olddated)
-                listBoxOutdated.Items.Add($"{ev.Title} — {ev.Date:dd.MM.yyyy} {ev.Time:HH:mm}");
+                listBoxOutdated.Items.Add($"{Short(ev.Title)} — {ev.Date:dd.MM.yyyy} {ev.Time:HH:mm}");
         }
         private void buttonDeleteAll_Click(object sender, EventArgs e)
         {

@@ -26,7 +26,6 @@ namespace Diary.Storage
             eventsPath = Path.Combine(folder, "events.json");
             categoryPath = Path.Combine(folder, "categories.json");
         }
-        public string EventsPath => eventsPath;
         public List<Event> LoadEvents()
         {
             if (!File.Exists(eventsPath))

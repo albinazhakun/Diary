@@ -20,7 +20,6 @@ namespace Diary.Logic
         {
             category.Add(catego);
             memory.SaveCategory(category);
-            MessageBox.Show($"Збережено у: {memory.EventsPath}");
         }
         public void Delete(Guid id)
         {

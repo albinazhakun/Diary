@@ -62,7 +62,7 @@ namespace Diary.UI
                 return;
             int count = eventLogic.GetAllEvents().Count(ev => ev.CategoryId == selected.Id);
             string msg = count > 0
-                ? $"До категорії \"{selected.Name}\" прив'язано {count} справ. Вони отримають «Без категорії». Продовжити?"
+                ? $"До категорії \"{selected.Name}\" прив'язано {count} справ. Вони отримають статус «Без категорії». Продовжити?"
                 : $"Видалити категорію \"{selected.Name}\"?";
             if (MessageBox.Show(msg, "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
                 == DialogResult.Yes)
@@ -71,6 +71,11 @@ namespace Diary.UI
                 categoryLogic.Delete(selected.Id);
                 RefreshList();
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

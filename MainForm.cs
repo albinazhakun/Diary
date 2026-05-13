@@ -36,6 +36,43 @@ namespace Diary
             LoadCategoryFilter();
             ChecOutDateEve();
             RefreshTable();
+            dataGridViewEvents.ClearSelection();
+            KeyPreview = true;
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.F1:
+                    MessageBox.Show(
+                        "F1 - допомога\n" +
+                        "Enter – згода\n" +
+                        "Delete – видалити вибрану справу\n" +
+                        "Ins – додати нову справу\n" +
+                        "Esc – відмова\n" +
+                        "Tab / Shift+Tab – перехід між полями",
+                        "Допомога", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+
+                case Keys.Insert:
+                    buttonAdd_Click(this, EventArgs.Empty);
+                    return true;
+
+                case Keys.Enter:
+                    if (dataGridViewEvents.CurrentRow?.Tag is Event)
+                        buttonEdit_Click(this, EventArgs.Empty);
+                    return true;
+
+                case Keys.Delete:
+                    if (dataGridViewEvents.CurrentRow?.Tag is Event)
+                        buttonDelete_Click(this, EventArgs.Empty);
+                    return true;
+
+                case Keys.Escape:
+                    dataGridViewEvents.ClearSelection();
+                    return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
         private void SetupTable()
         {
@@ -46,6 +83,8 @@ namespace Diary
             dataGridViewEvents.MultiSelect = false;
             dataGridViewEvents.RowHeadersVisible = false;
             dataGridViewEvents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewEvents.AutoGenerateColumns = false;
+
         }
         private void RefreshTable()
         {
@@ -78,7 +117,19 @@ namespace Diary
                 {
                     dataGridViewEvents.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
                 }
+                Category? cat = categoryLogic.GetId(ev.CategoryId ?? Guid.Empty);
+                if (cat?.Color != null)
+                {
+                    try
+                    {
+                        Color rowColor = ColorTranslator.FromHtml(cat.Color);
+                        dataGridViewEvents.Rows[i].DefaultCellStyle.BackColor = rowColor;
+                        dataGridViewEvents.Rows[i].DefaultCellStyle.ForeColor = Color.FromArgb(40, 40, 40);
+                    }
+                    catch { }
+                }
             }
+            dataGridViewEvents.ClearSelection();
         }
         private void LoadCategoryFilter()
         {
@@ -115,7 +166,7 @@ namespace Diary
             List<Event> outdated = eventLogic.GetOldDate();
             if (outdated.Count == 0)
             {
-                MessageBox.Show("Застарілих справ немає!", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Застарілих справ немає", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             using OldEventForm form = new(outdated, eventLogic);
@@ -135,11 +186,7 @@ namespace Diary
             List<Event> results = eventLogic.Search(string.IsNullOrWhiteSpace(title) ? null : title, categoryId);
             FillTable(results);
         }
-        private void buttonAllDates_Click(object sender, EventArgs e)
-        {
-            selectedDate = null;
-            RefreshTable();
-        }
+
         private void buttonToday_Click(object sender, EventArgs e)
         {
             selectedDate = DateOnly.FromDateTime(DateTime.Now);
@@ -235,7 +282,7 @@ namespace Diary
         private void ChecOutDateEve()
         {
             List<Event> outdated = eventLogic.GetOldDate();
-            if (outdated.Count > 0)
+            if (outdated.Count == 0)
                 return;
             using OldEventForm form = new(outdated, eventLogic);
             form.ShowDialog();
@@ -250,7 +297,7 @@ namespace Diary
         {
             if (dataGridViewEvents.CurrentRow?.Tag is Event ev)
                 return ev;
-            MessageBox.Show("Оберіть справу зі списку.", "Увага",
+            MessageBox.Show("Оберіть справу зі списку", "Увага",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             return null;
         }
@@ -268,5 +315,19 @@ namespace Diary
             _ => "Середній"
         };
 
+        private void dataGridViewEvents_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panelTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelLeft_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

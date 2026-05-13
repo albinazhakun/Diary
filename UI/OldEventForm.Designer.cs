@@ -33,30 +33,39 @@
             buttonDeleteAll = new Button();
             buttonReschedule = new Button();
             buttonSkip = new Button();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // listBoxOutdated
             // 
+            listBoxOutdated.Dock = DockStyle.Fill;
             listBoxOutdated.FormattingEnabled = true;
-            listBoxOutdated.Location = new Point(45, 202);
+            listBoxOutdated.Location = new Point(0, 100);
             listBoxOutdated.Name = "listBoxOutdated";
-            listBoxOutdated.Size = new Size(721, 144);
+            listBoxOutdated.Size = new Size(742, 256);
             listBoxOutdated.TabIndex = 0;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
-            label1.Location = new Point(310, 35);
+            label1.Font = new Font("Times New Roman", 22.2F, FontStyle.Bold);
+            label1.ForeColor = Color.OldLace;
+            label1.Location = new Point(221, 29);
             label1.Name = "label1";
-            label1.Size = new Size(125, 20);
+            label1.Size = new Size(300, 42);
             label1.TabIndex = 1;
             label1.Text = "Застарілі справи";
             // 
             // buttonDeleteAll
             // 
-            buttonDeleteAll.Location = new Point(130, 379);
+            buttonDeleteAll.Anchor = AnchorStyles.Top;
+            buttonDeleteAll.Location = new Point(301, 17);
             buttonDeleteAll.Name = "buttonDeleteAll";
-            buttonDeleteAll.Size = new Size(136, 29);
+            buttonDeleteAll.Size = new Size(140, 48);
             buttonDeleteAll.TabIndex = 2;
             buttonDeleteAll.Text = "Видалити всі";
             buttonDeleteAll.UseVisualStyleBackColor = true;
@@ -64,9 +73,10 @@
             // 
             // buttonReschedule
             // 
-            buttonReschedule.Location = new Point(341, 379);
+            buttonReschedule.Anchor = AnchorStyles.Top;
+            buttonReschedule.Location = new Point(128, 17);
             buttonReschedule.Name = "buttonReschedule";
-            buttonReschedule.Size = new Size(94, 29);
+            buttonReschedule.Size = new Size(140, 48);
             buttonReschedule.TabIndex = 3;
             buttonReschedule.Text = "Перенести";
             buttonReschedule.UseVisualStyleBackColor = true;
@@ -74,29 +84,54 @@
             // 
             // buttonSkip
             // 
-            buttonSkip.Location = new Point(499, 379);
+            buttonSkip.Anchor = AnchorStyles.Top;
+            buttonSkip.Location = new Point(473, 17);
             buttonSkip.Name = "buttonSkip";
-            buttonSkip.Size = new Size(109, 29);
+            buttonSkip.Size = new Size(140, 48);
             buttonSkip.TabIndex = 4;
             buttonSkip.Text = "Пропустити";
             buttonSkip.UseVisualStyleBackColor = true;
             buttonSkip.Click += buttonSkip_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(742, 100);
+            panel1.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.FromArgb(87, 77, 87);
+            panel2.Controls.Add(buttonSkip);
+            panel2.Controls.Add(buttonDeleteAll);
+            panel2.Controls.Add(buttonReschedule);
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 356);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(742, 83);
+            panel2.TabIndex = 6;
+            // 
             // OldEventForm
             // 
+            AcceptButton = buttonReschedule;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(buttonSkip);
-            Controls.Add(buttonReschedule);
-            Controls.Add(buttonDeleteAll);
-            Controls.Add(label1);
+            BackColor = Color.FromArgb(72, 64, 72);
+            CancelButton = buttonSkip;
+            ClientSize = new Size(742, 439);
             Controls.Add(listBoxOutdated);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Name = "OldEventForm";
             Text = "OldEventForm";
             Load += OlddatedEventsForm_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -106,5 +141,7 @@
         private Button buttonDeleteAll;
         private Button buttonReschedule;
         private Button buttonSkip;
+        private Panel panel1;
+        private Panel panel2;
     }
 }

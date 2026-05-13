@@ -24,7 +24,7 @@ namespace Diary.UI
         }
         private void ReminderForm_Load(object sender, EventArgs e)
         {
-            labelTitle.Text = $"Нагадування: через 5 хв розпочнеться «{even.Title}»";
+            labelTitle.Text = $"Нагадування: Скоро розпочнеться «{even.Title}»";
             textBoxName.Text = even.Title;
             textBoxTime.Text = even.Time.ToString("HH:mm");
             textBoxLocation.Text = even.Location ?? "—";
@@ -37,6 +37,6 @@ namespace Diary.UI
             timer.Dispose();
         }
 
-        
+     
     }
 }

@@ -45,5 +45,7 @@ namespace Diary.UI
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        
     }
 }

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelLeft = new Panel();
             buttonAllEvents = new Button();
             buttonOutdated = new Button();
@@ -35,19 +37,20 @@
             buttonCategories = new Button();
             label1 = new Label();
             panel4 = new Panel();
+            label2 = new Label();
             buttonSearch = new Button();
             comboBoxCategoryFilter = new ComboBox();
             textBoxSearch = new TextBox();
             panel3 = new Panel();
             panelTop = new Panel();
-            buttonDelete = new Button();
             buttonPickDate = new Button();
-            buttonEdit = new Button();
             buttonDayAfterTomorrow = new Button();
-            buttonAdd = new Button();
             buttonTomorrow = new Button();
             buttonToday = new Button();
-            buttonAllDates = new Button();
+            buttonDelete = new Button();
+            buttonEdit = new Button();
+            buttonAdd = new Button();
+            labelNoResults = new Label();
             dataGridViewEvents = new DataGridView();
             colTitle = new DataGridViewTextBoxColumn();
             colDate = new DataGridViewTextBoxColumn();
@@ -56,11 +59,12 @@
             colLocation = new DataGridViewTextBoxColumn();
             colCategory = new DataGridViewTextBoxColumn();
             colPriority = new DataGridViewTextBoxColumn();
-            labelNoResults = new Label();
+            panel1 = new Panel();
             panelLeft.SuspendLayout();
             panel4.SuspendLayout();
             panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewEvents).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panelLeft
@@ -78,9 +82,11 @@
             panelLeft.Name = "panelLeft";
             panelLeft.Size = new Size(244, 668);
             panelLeft.TabIndex = 0;
+            panelLeft.Paint += panelLeft_Paint;
             // 
             // buttonAllEvents
             // 
+            buttonAllEvents.Anchor = AnchorStyles.Left;
             buttonAllEvents.FlatAppearance.BorderSize = 0;
             buttonAllEvents.FlatStyle = FlatStyle.Flat;
             buttonAllEvents.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -95,6 +101,7 @@
             // 
             // buttonOutdated
             // 
+            buttonOutdated.Anchor = AnchorStyles.Left;
             buttonOutdated.FlatAppearance.BorderSize = 0;
             buttonOutdated.FlatStyle = FlatStyle.Flat;
             buttonOutdated.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -109,6 +116,7 @@
             // 
             // buttonCheckOverlays
             // 
+            buttonCheckOverlays.Anchor = AnchorStyles.Left;
             buttonCheckOverlays.FlatAppearance.BorderSize = 0;
             buttonCheckOverlays.FlatStyle = FlatStyle.Flat;
             buttonCheckOverlays.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -123,6 +131,7 @@
             // 
             // buttonCategories
             // 
+            buttonCategories.Anchor = AnchorStyles.Left;
             buttonCategories.FlatAppearance.BorderSize = 0;
             buttonCategories.FlatStyle = FlatStyle.Flat;
             buttonCategories.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -137,10 +146,11 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new Font("Agency FB", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(184, 176, 176);
-            label1.Location = new Point(78, 22);
+            label1.Location = new Point(82, 22);
             label1.Name = "label1";
             label1.Size = new Size(80, 28);
             label1.TabIndex = 4;
@@ -148,20 +158,35 @@
             // 
             // panel4
             // 
+            panel4.Anchor = AnchorStyles.Left;
             panel4.BackColor = Color.FromArgb(136, 120, 120);
+            panel4.Controls.Add(label2);
             panel4.Controls.Add(buttonSearch);
             panel4.Controls.Add(comboBoxCategoryFilter);
             panel4.Controls.Add(textBoxSearch);
             panel4.Location = new Point(0, 356);
             panel4.Name = "panel4";
-            panel4.Size = new Size(245, 248);
+            panel4.Size = new Size(245, 245);
             panel4.TabIndex = 8;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Left;
+            label2.AutoSize = true;
+            label2.Font = new Font("Agency FB", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(24, 24, 24);
+            label2.Location = new Point(78, 19);
+            label2.Name = "label2";
+            label2.Size = new Size(88, 28);
+            label2.TabIndex = 13;
+            label2.Text = "ПОШУК";
             // 
             // buttonSearch
             // 
+            buttonSearch.Anchor = AnchorStyles.Left;
             buttonSearch.Font = new Font("Bahnschrift SemiCondensed", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonSearch.ForeColor = Color.FromArgb(24, 24, 24);
-            buttonSearch.Location = new Point(53, 163);
+            buttonSearch.Location = new Point(52, 169);
             buttonSearch.Name = "buttonSearch";
             buttonSearch.Size = new Size(141, 39);
             buttonSearch.TabIndex = 2;
@@ -171,15 +196,17 @@
             // 
             // comboBoxCategoryFilter
             // 
+            comboBoxCategoryFilter.Anchor = AnchorStyles.Left;
             comboBoxCategoryFilter.FormattingEnabled = true;
-            comboBoxCategoryFilter.Location = new Point(35, 108);
+            comboBoxCategoryFilter.Location = new Point(32, 114);
             comboBoxCategoryFilter.Name = "comboBoxCategoryFilter";
             comboBoxCategoryFilter.Size = new Size(180, 28);
             comboBoxCategoryFilter.TabIndex = 1;
             // 
             // textBoxSearch
             // 
-            textBoxSearch.Location = new Point(35, 60);
+            textBoxSearch.Anchor = AnchorStyles.Left;
+            textBoxSearch.Location = new Point(32, 66);
             textBoxSearch.Name = "textBoxSearch";
             textBoxSearch.Size = new Size(180, 27);
             textBoxSearch.TabIndex = 0;
@@ -196,75 +223,51 @@
             // 
             panelTop.AutoScroll = true;
             panelTop.BackColor = Color.FromArgb(80, 72, 72);
-            panelTop.Controls.Add(buttonDelete);
             panelTop.Controls.Add(buttonPickDate);
-            panelTop.Controls.Add(buttonEdit);
             panelTop.Controls.Add(buttonDayAfterTomorrow);
-            panelTop.Controls.Add(buttonAdd);
             panelTop.Controls.Add(buttonTomorrow);
             panelTop.Controls.Add(buttonToday);
-            panelTop.Controls.Add(buttonAllDates);
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(244, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(967, 72);
+            panelTop.Size = new Size(967, 73);
             panelTop.TabIndex = 1;
-            // 
-            // buttonDelete
-            // 
-            buttonDelete.Location = new Point(827, 18);
-            buttonDelete.Name = "buttonDelete";
-            buttonDelete.Size = new Size(99, 42);
-            buttonDelete.TabIndex = 5;
-            buttonDelete.Text = "Видалити";
-            buttonDelete.UseVisualStyleBackColor = true;
-            buttonDelete.Click += buttonDelete_Click;
+            panelTop.Paint += panelTop_Paint;
             // 
             // buttonPickDate
             // 
-            buttonPickDate.Location = new Point(401, 44);
+            buttonPickDate.Anchor = AnchorStyles.Top;
+            buttonPickDate.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            buttonPickDate.ForeColor = Color.FromArgb(24, 24, 24);
+            buttonPickDate.Location = new Point(659, 14);
             buttonPickDate.Name = "buttonPickDate";
-            buttonPickDate.Size = new Size(93, 29);
+            buttonPickDate.Size = new Size(136, 44);
             buttonPickDate.TabIndex = 4;
             buttonPickDate.Text = "Обрати";
             buttonPickDate.UseVisualStyleBackColor = true;
             buttonPickDate.Click += buttonPickDate_Click;
             // 
-            // buttonEdit
-            // 
-            buttonEdit.Location = new Point(709, 18);
-            buttonEdit.Name = "buttonEdit";
-            buttonEdit.Size = new Size(99, 42);
-            buttonEdit.TabIndex = 6;
-            buttonEdit.Text = "Редагувати";
-            buttonEdit.UseVisualStyleBackColor = true;
-            buttonEdit.Click += buttonEdit_Click;
-            // 
             // buttonDayAfterTomorrow
             // 
-            buttonDayAfterTomorrow.Location = new Point(300, 44);
+            buttonDayAfterTomorrow.Anchor = AnchorStyles.Top;
+            buttonDayAfterTomorrow.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            buttonDayAfterTomorrow.ForeColor = Color.FromArgb(24, 24, 24);
+            buttonDayAfterTomorrow.Location = new Point(504, 14);
             buttonDayAfterTomorrow.Name = "buttonDayAfterTomorrow";
-            buttonDayAfterTomorrow.Size = new Size(94, 29);
+            buttonDayAfterTomorrow.Size = new Size(136, 44);
             buttonDayAfterTomorrow.TabIndex = 3;
             buttonDayAfterTomorrow.Text = "Післязавтра";
             buttonDayAfterTomorrow.UseVisualStyleBackColor = true;
             buttonDayAfterTomorrow.Click += buttonDayAfterTomorrow_Click;
             // 
-            // buttonAdd
-            // 
-            buttonAdd.Location = new Point(586, 18);
-            buttonAdd.Name = "buttonAdd";
-            buttonAdd.Size = new Size(99, 42);
-            buttonAdd.TabIndex = 7;
-            buttonAdd.Text = "Додати";
-            buttonAdd.UseVisualStyleBackColor = true;
-            buttonAdd.Click += buttonAdd_Click;
-            // 
             // buttonTomorrow
             // 
-            buttonTomorrow.Location = new Point(200, 44);
+            buttonTomorrow.Anchor = AnchorStyles.Top;
+            buttonTomorrow.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            buttonTomorrow.ForeColor = Color.FromArgb(24, 24, 24);
+            buttonTomorrow.Location = new Point(338, 14);
             buttonTomorrow.Name = "buttonTomorrow";
-            buttonTomorrow.Size = new Size(94, 29);
+            buttonTomorrow.Size = new Size(136, 44);
             buttonTomorrow.TabIndex = 2;
             buttonTomorrow.Text = "Завтра";
             buttonTomorrow.UseVisualStyleBackColor = true;
@@ -272,35 +275,101 @@
             // 
             // buttonToday
             // 
-            buttonToday.Location = new Point(100, 44);
+            buttonToday.Anchor = AnchorStyles.Top;
+            buttonToday.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            buttonToday.ForeColor = Color.FromArgb(24, 24, 24);
+            buttonToday.Location = new Point(181, 14);
             buttonToday.Name = "buttonToday";
-            buttonToday.Size = new Size(94, 29);
+            buttonToday.Size = new Size(136, 44);
             buttonToday.TabIndex = 1;
             buttonToday.Text = "Сьогодні";
             buttonToday.UseVisualStyleBackColor = true;
             buttonToday.Click += buttonToday_Click;
             // 
-            // buttonAllDates
+            // buttonDelete
             // 
-            buttonAllDates.Location = new Point(0, 44);
-            buttonAllDates.Name = "buttonAllDates";
-            buttonAllDates.Size = new Size(94, 29);
-            buttonAllDates.TabIndex = 0;
-            buttonAllDates.Text = "Усі дати";
-            buttonAllDates.UseVisualStyleBackColor = true;
-            buttonAllDates.Click += buttonAllDates_Click;
+            buttonDelete.Anchor = AnchorStyles.Top;
+            buttonDelete.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            buttonDelete.ForeColor = Color.FromArgb(24, 24, 24);
+            buttonDelete.Location = new Point(593, 14);
+            buttonDelete.Name = "buttonDelete";
+            buttonDelete.Size = new Size(153, 45);
+            buttonDelete.TabIndex = 5;
+            buttonDelete.Text = "Видалити";
+            buttonDelete.UseVisualStyleBackColor = true;
+            buttonDelete.Click += buttonDelete_Click;
+            // 
+            // buttonEdit
+            // 
+            buttonEdit.Anchor = AnchorStyles.Top;
+            buttonEdit.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            buttonEdit.ForeColor = Color.FromArgb(24, 24, 24);
+            buttonEdit.Location = new Point(421, 14);
+            buttonEdit.Name = "buttonEdit";
+            buttonEdit.Size = new Size(153, 45);
+            buttonEdit.TabIndex = 6;
+            buttonEdit.Text = "Редагувати";
+            buttonEdit.UseVisualStyleBackColor = true;
+            buttonEdit.Click += buttonEdit_Click;
+            // 
+            // buttonAdd
+            // 
+            buttonAdd.Anchor = AnchorStyles.Top;
+            buttonAdd.Font = new Font("Bahnschrift SemiCondensed", 13.8F);
+            buttonAdd.ForeColor = Color.FromArgb(24, 24, 24);
+            buttonAdd.Location = new Point(248, 14);
+            buttonAdd.Name = "buttonAdd";
+            buttonAdd.Size = new Size(153, 45);
+            buttonAdd.TabIndex = 7;
+            buttonAdd.Text = "Додати";
+            buttonAdd.UseVisualStyleBackColor = true;
+            buttonAdd.Click += buttonAdd_Click;
+            // 
+            // labelNoResults
+            // 
+            labelNoResults.AutoSize = true;
+            labelNoResults.BackColor = Color.White;
+            labelNoResults.Font = new Font("Bahnschrift SemiBold SemiConden", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            labelNoResults.ForeColor = SystemColors.ControlDarkDark;
+            labelNoResults.Location = new Point(634, 356);
+            labelNoResults.Name = "labelNoResults";
+            labelNoResults.Size = new Size(183, 28);
+            labelNoResults.TabIndex = 3;
+            labelNoResults.Text = "Збігів не знайдено";
+            labelNoResults.Visible = false;
             // 
             // dataGridViewEvents
             // 
-            dataGridViewEvents.BackgroundColor = Color.FromArgb(184, 176, 176);
+            dataGridViewEvents.BackgroundColor = Color.White;
+            dataGridViewEvents.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(184, 176, 176);
+            dataGridViewCellStyle1.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(184, 176, 176);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewEvents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewEvents.Columns.AddRange(new DataGridViewColumn[] { colTitle, colDate, colTime, colDuration, colLocation, colCategory, colPriority });
-            dataGridViewEvents.Location = new Point(272, 112);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.LightSalmon;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(24, 24, 24);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewEvents.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewEvents.Dock = DockStyle.Fill;
+            dataGridViewEvents.EnableHeadersVisualStyles = false;
+            dataGridViewEvents.GridColor = Color.Silver;
+            dataGridViewEvents.Location = new Point(244, 73);
             dataGridViewEvents.Name = "dataGridViewEvents";
             dataGridViewEvents.RowHeadersWidth = 51;
-            dataGridViewEvents.Size = new Size(911, 522);
+            dataGridViewEvents.RowTemplate.Height = 35;
+            dataGridViewEvents.Size = new Size(967, 595);
             dataGridViewEvents.TabIndex = 2;
-            dataGridViewEvents.Visible = false;
+            dataGridViewEvents.CellClick += dataGridViewEvents_CellClick;
             // 
             // colTitle
             // 
@@ -351,18 +420,17 @@
             colPriority.Name = "colPriority";
             colPriority.Width = 125;
             // 
-            // labelNoResults
+            // panel1
             // 
-            labelNoResults.AutoSize = true;
-            labelNoResults.BackColor = Color.FromArgb(184, 176, 176);
-            labelNoResults.Font = new Font("Bahnschrift SemiBold SemiConden", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            labelNoResults.ForeColor = SystemColors.ControlDarkDark;
-            labelNoResults.Location = new Point(634, 356);
-            labelNoResults.Name = "labelNoResults";
-            labelNoResults.Size = new Size(183, 28);
-            labelNoResults.TabIndex = 3;
-            labelNoResults.Text = "Збігів не знайдено";
-            labelNoResults.Visible = false;
+            panel1.BackColor = Color.FromArgb(184, 176, 176);
+            panel1.Controls.Add(buttonDelete);
+            panel1.Controls.Add(buttonAdd);
+            panel1.Controls.Add(buttonEdit);
+            panel1.Dock = DockStyle.Bottom;
+            panel1.Location = new Point(244, 597);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(967, 71);
+            panel1.TabIndex = 8;
             // 
             // MainForm
             // 
@@ -370,13 +438,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1211, 668);
+            Controls.Add(panel1);
             Controls.Add(labelNoResults);
             Controls.Add(dataGridViewEvents);
             Controls.Add(panelTop);
             Controls.Add(panelLeft);
             ForeColor = Color.LightSalmon;
             Name = "MainForm";
-            Text = "MainForm";
+            Text = "Щоденник";
             FormClosing += MainForm_FormClothing;
             Load += MainForm_Load;
             panelLeft.ResumeLayout(false);
@@ -385,6 +454,7 @@
             panel4.PerformLayout();
             panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewEvents).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -403,7 +473,6 @@
         private Button buttonCheckOverlays;
         private Button buttonCategories;
         private Button buttonAllEvents;
-        private DataGridView dataGridViewEvents;
         private Label labelNoResults;
         private Button buttonAdd;
         private Button buttonEdit;
@@ -412,7 +481,7 @@
         private Button buttonDayAfterTomorrow;
         private Button buttonTomorrow;
         private Button buttonToday;
-        private Button buttonAllDates;
+        private DataGridView dataGridViewEvents;
         private DataGridViewTextBoxColumn colTitle;
         private DataGridViewTextBoxColumn colDate;
         private DataGridViewTextBoxColumn colTime;
@@ -420,5 +489,7 @@
         private DataGridViewTextBoxColumn colLocation;
         private DataGridViewTextBoxColumn colCategory;
         private DataGridViewTextBoxColumn colPriority;
+        private Label label2;
+        private Panel panel1;
     }
 }
