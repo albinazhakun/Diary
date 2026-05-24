@@ -126,7 +126,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "OldEventForm";
-            Text = "OldEventForm";
+            Text = "Застарілі справи";
             Load += OlddatedEventsForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

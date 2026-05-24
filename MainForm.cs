@@ -29,12 +29,12 @@ namespace Diary
             overlaysLogic = over;
             remindLogic.RemindTrig += OnReminderTriggered;
             remindLogic.Start();
+            Shown += MainFormShown;
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
             SetupTable();
             LoadCategoryFilter();
-            ChecOutDateEve();
             RefreshTable();
             dataGridViewEvents.ClearSelection();
             KeyPreview = true;
@@ -84,6 +84,7 @@ namespace Diary
             dataGridViewEvents.RowHeadersVisible = false;
             dataGridViewEvents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewEvents.AutoGenerateColumns = false;
+            dataGridViewEvents.DefaultCellStyle.ForeColor = Color.Black;
 
         }
         private void RefreshTable()
@@ -124,7 +125,6 @@ namespace Diary
                     {
                         Color rowColor = ColorTranslator.FromHtml(cat.Color);
                         dataGridViewEvents.Rows[i].DefaultCellStyle.BackColor = rowColor;
-                        dataGridViewEvents.Rows[i].DefaultCellStyle.ForeColor = Color.FromArgb(40, 40, 40);
                     }
                     catch { }
                 }
@@ -141,6 +141,10 @@ namespace Diary
             }
             comboBoxCategoryFilter.SelectedIndex = 0;
             comboBoxCategoryFilter.DisplayMember = "Name";
+        }
+        private void MainFormShown(object? sender, EventArgs e)
+        {
+            ChecOutDateEve();
         }
         private void buttonAllEvents_Click(object sender, EventArgs e)
         {

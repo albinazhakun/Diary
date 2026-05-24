@@ -356,7 +356,7 @@
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.LightSalmon;
-            dataGridViewCellStyle2.SelectionBackColor = Color.LightSteelBlue;
+            dataGridViewCellStyle2.SelectionBackColor = Color.LightGray;
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(24, 24, 24);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridViewEvents.DefaultCellStyle = dataGridViewCellStyle2;

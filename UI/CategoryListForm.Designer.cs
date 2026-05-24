@@ -42,7 +42,7 @@
             // buttonAdd
             // 
             buttonAdd.Anchor = AnchorStyles.Top;
-            buttonAdd.Location = new Point(114, 16);
+            buttonAdd.Location = new Point(115, 16);
             buttonAdd.Name = "buttonAdd";
             buttonAdd.Size = new Size(133, 56);
             buttonAdd.TabIndex = 1;
@@ -53,7 +53,7 @@
             // buttonEdit
             // 
             buttonEdit.Anchor = AnchorStyles.Top;
-            buttonEdit.Location = new Point(281, 16);
+            buttonEdit.Location = new Point(282, 16);
             buttonEdit.Name = "buttonEdit";
             buttonEdit.Size = new Size(133, 56);
             buttonEdit.TabIndex = 2;
@@ -64,7 +64,7 @@
             // buttonDelete
             // 
             buttonDelete.Anchor = AnchorStyles.Top;
-            buttonDelete.Location = new Point(447, 16);
+            buttonDelete.Location = new Point(448, 16);
             buttonDelete.Name = "buttonDelete";
             buttonDelete.Size = new Size(133, 56);
             buttonDelete.TabIndex = 3;
@@ -79,9 +79,9 @@
             panel1.Controls.Add(buttonEdit);
             panel1.Controls.Add(buttonAdd);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 414);
+            panel1.Location = new Point(0, 389);
             panel1.Name = "panel1";
-            panel1.Size = new Size(694, 90);
+            panel1.Size = new Size(697, 90);
             panel1.TabIndex = 4;
             // 
             // label1
@@ -90,7 +90,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Times New Roman", 22.2F, FontStyle.Bold);
             label1.ForeColor = Color.OldLace;
-            label1.Location = new Point(261, 24);
+            label1.Location = new Point(262, 24);
             label1.Name = "label1";
             label1.Size = new Size(173, 42);
             label1.TabIndex = 6;
@@ -103,7 +103,7 @@
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(694, 92);
+            panel3.Size = new Size(697, 92);
             panel3.TabIndex = 7;
             // 
             // listBoxCategories
@@ -113,7 +113,7 @@
             listBoxCategories.FormattingEnabled = true;
             listBoxCategories.Location = new Point(0, 92);
             listBoxCategories.Name = "listBoxCategories";
-            listBoxCategories.Size = new Size(694, 322);
+            listBoxCategories.Size = new Size(697, 297);
             listBoxCategories.TabIndex = 0;
             listBoxCategories.SelectedIndexChanged += listBoxCategories_SelectedIndexChanged;
             // 
@@ -122,12 +122,12 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(72, 64, 72);
-            ClientSize = new Size(694, 504);
+            ClientSize = new Size(697, 479);
             Controls.Add(listBoxCategories);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Name = "CategoryListForm";
-            Text = "CategoryListForm";
+            Text = "Категорії";
             Load += CategoryListForm_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);

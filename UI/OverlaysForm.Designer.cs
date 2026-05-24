@@ -99,7 +99,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "OverlaysForm";
-            Text = "OverlaysForm";
+            Text = "Накладки";
             Load += OverlapForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

@@ -175,7 +175,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "RemindForm";
-            Text = "RemindForm";
+            Text = "Нагадування";
             FormClosing += ReminderForm_FormClosing;
             Load += ReminderForm_Load;
             panel1.ResumeLayout(false);

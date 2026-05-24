@@ -14,11 +14,13 @@ namespace Diary.UI
     {
         private readonly CategoryLogic categoryLogic;
         private readonly EventLogic eventLogic;
+        private readonly ToolTip toolTip = new();
         public CategoryListForm(CategoryLogic categ, EventLogic even)
         {
             InitializeComponent();
             categoryLogic = categ;
             eventLogic = even;
+            listBoxCategories.MouseMove += listBoxCategories_MouseMove;
         }
         private void CategoryListForm_Load(object sender, EventArgs e)
         {
@@ -72,10 +74,27 @@ namespace Diary.UI
                 RefreshList();
             }
         }
+        private void listBoxCategories_MouseMove(object? sender, MouseEventArgs e)
+        {
+            int index = listBoxCategories.IndexFromPoint(e.Location);
+
+            if (index >= 0 && index < listBoxCategories.Items.Count)
+            {
+                if (listBoxCategories.Items[index] is Category cat)
+                {
+                    toolTip.SetToolTip(
+                        listBoxCategories,
+                        string.IsNullOrWhiteSpace(cat.Description)
+                            ? "Опис відсутній"
+                            : cat.Description);
+                }
+            }
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

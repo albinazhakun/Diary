@@ -67,7 +67,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             label1.ForeColor = Color.OldLace;
-            label1.Location = new Point(42, 34);
+            label1.Location = new Point(71, 34);
             label1.Name = "label1";
             label1.Size = new Size(58, 23);
             label1.TabIndex = 0;
@@ -78,7 +78,7 @@
             // 
             textBoxTitle.Anchor = AnchorStyles.Top;
             textBoxTitle.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            textBoxTitle.Location = new Point(106, 26);
+            textBoxTitle.Location = new Point(135, 26);
             textBoxTitle.Multiline = true;
             textBoxTitle.Name = "textBoxTitle";
             textBoxTitle.Size = new Size(577, 41);
@@ -91,7 +91,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             label2.ForeColor = Color.OldLace;
-            label2.Location = new Point(70, 25);
+            label2.Location = new Point(99, 25);
             label2.Name = "label2";
             label2.Size = new Size(47, 23);
             label2.TabIndex = 2;
@@ -104,7 +104,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             label3.ForeColor = Color.OldLace;
-            label3.Location = new Point(290, 26);
+            label3.Location = new Point(319, 26);
             label3.Name = "label3";
             label3.Size = new Size(39, 23);
             label3.TabIndex = 3;
@@ -117,7 +117,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             label4.ForeColor = Color.OldLace;
-            label4.Location = new Point(484, 25);
+            label4.Location = new Point(513, 25);
             label4.Name = "label4";
             label4.Size = new Size(124, 23);
             label4.TabIndex = 4;
@@ -130,7 +130,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             label5.ForeColor = Color.OldLace;
-            label5.Location = new Point(26, 38);
+            label5.Location = new Point(55, 38);
             label5.Name = "label5";
             label5.Size = new Size(159, 23);
             label5.TabIndex = 5;
@@ -143,7 +143,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             label6.ForeColor = Color.OldLace;
-            label6.Location = new Point(100, 24);
+            label6.Location = new Point(129, 24);
             label6.Name = "label6";
             label6.Size = new Size(85, 23);
             label6.TabIndex = 6;
@@ -156,7 +156,7 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
             label7.ForeColor = Color.OldLace;
-            label7.Location = new Point(436, 24);
+            label7.Location = new Point(465, 24);
             label7.Name = "label7";
             label7.Size = new Size(90, 23);
             label7.TabIndex = 7;
@@ -166,7 +166,7 @@
             // buttonCancel
             // 
             buttonCancel.Anchor = AnchorStyles.Right;
-            buttonCancel.Location = new Point(584, 9);
+            buttonCancel.Location = new Point(641, 9);
             buttonCancel.Name = "buttonCancel";
             buttonCancel.Size = new Size(94, 29);
             buttonCancel.TabIndex = 8;
@@ -177,7 +177,7 @@
             // buttonOk
             // 
             buttonOk.Anchor = AnchorStyles.Right;
-            buttonOk.Location = new Point(684, 9);
+            buttonOk.Location = new Point(741, 9);
             buttonOk.Name = "buttonOk";
             buttonOk.Size = new Size(94, 29);
             buttonOk.TabIndex = 9;
@@ -189,7 +189,7 @@
             // 
             dateTimePickerDate.Anchor = AnchorStyles.Top;
             dateTimePickerDate.Format = DateTimePickerFormat.Short;
-            dateTimePickerDate.Location = new Point(123, 23);
+            dateTimePickerDate.Location = new Point(152, 23);
             dateTimePickerDate.Name = "dateTimePickerDate";
             dateTimePickerDate.Size = new Size(118, 27);
             dateTimePickerDate.TabIndex = 10;
@@ -198,7 +198,7 @@
             // 
             dateTimePickerTime.Anchor = AnchorStyles.Top;
             dateTimePickerTime.Format = DateTimePickerFormat.Time;
-            dateTimePickerTime.Location = new Point(335, 23);
+            dateTimePickerTime.Location = new Point(364, 23);
             dateTimePickerTime.Name = "dateTimePickerTime";
             dateTimePickerTime.Size = new Size(118, 27);
             dateTimePickerTime.TabIndex = 11;
@@ -206,7 +206,7 @@
             // numericUpDownDuration
             // 
             numericUpDownDuration.Anchor = AnchorStyles.Top;
-            numericUpDownDuration.Location = new Point(614, 23);
+            numericUpDownDuration.Location = new Point(643, 23);
             numericUpDownDuration.Maximum = new decimal(new int[] { 1440, 0, 0, 0 });
             numericUpDownDuration.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownDuration.Name = "numericUpDownDuration";
@@ -218,7 +218,7 @@
             // 
             textBoxLocation.Anchor = AnchorStyles.Top;
             textBoxLocation.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            textBoxLocation.Location = new Point(191, 19);
+            textBoxLocation.Location = new Point(220, 19);
             textBoxLocation.Multiline = true;
             textBoxLocation.Name = "textBoxLocation";
             textBoxLocation.Size = new Size(492, 61);
@@ -228,7 +228,7 @@
             // 
             comboBoxCategory.Anchor = AnchorStyles.Top;
             comboBoxCategory.FormattingEnabled = true;
-            comboBoxCategory.Location = new Point(191, 22);
+            comboBoxCategory.Location = new Point(220, 22);
             comboBoxCategory.Name = "comboBoxCategory";
             comboBoxCategory.Size = new Size(151, 28);
             comboBoxCategory.TabIndex = 14;
@@ -237,7 +237,7 @@
             // 
             comboBoxPriority.Anchor = AnchorStyles.Top;
             comboBoxPriority.FormattingEnabled = true;
-            comboBoxPriority.Location = new Point(532, 22);
+            comboBoxPriority.Location = new Point(561, 22);
             comboBoxPriority.Name = "comboBoxPriority";
             comboBoxPriority.Size = new Size(151, 28);
             comboBoxPriority.TabIndex = 15;
@@ -248,7 +248,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Times New Roman", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
             label8.ForeColor = Color.OldLace;
-            label8.Location = new Point(280, 15);
+            label8.Location = new Point(309, 15);
             label8.Name = "label8";
             label8.Size = new Size(228, 42);
             label8.TabIndex = 16;
@@ -260,7 +260,7 @@
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(789, 73);
+            panel2.Size = new Size(846, 73);
             panel2.TabIndex = 18;
             // 
             // panel3
@@ -270,7 +270,7 @@
             panel3.Dock = DockStyle.Bottom;
             panel3.Location = new Point(0, 492);
             panel3.Name = "panel3";
-            panel3.Size = new Size(789, 47);
+            panel3.Size = new Size(846, 47);
             panel3.TabIndex = 19;
             // 
             // panel1
@@ -281,7 +281,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 73);
             panel1.Name = "panel1";
-            panel1.Size = new Size(789, 123);
+            panel1.Size = new Size(846, 123);
             panel1.TabIndex = 20;
             // 
             // panel4
@@ -296,7 +296,7 @@
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 196);
             panel4.Name = "panel4";
-            panel4.Size = new Size(789, 85);
+            panel4.Size = new Size(846, 85);
             panel4.TabIndex = 21;
             // 
             // panel5
@@ -307,7 +307,7 @@
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(0, 281);
             panel5.Name = "panel5";
-            panel5.Size = new Size(789, 113);
+            panel5.Size = new Size(846, 113);
             panel5.TabIndex = 22;
             // 
             // panel6
@@ -320,7 +320,7 @@
             panel6.Dock = DockStyle.Top;
             panel6.Location = new Point(0, 394);
             panel6.Name = "panel6";
-            panel6.Size = new Size(789, 99);
+            panel6.Size = new Size(846, 99);
             panel6.TabIndex = 23;
             // 
             // EventForm
@@ -330,7 +330,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(72, 64, 72);
             CancelButton = buttonCancel;
-            ClientSize = new Size(789, 539);
+            ClientSize = new Size(846, 539);
             Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(panel4);
