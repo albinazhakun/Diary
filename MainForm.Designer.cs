@@ -86,7 +86,7 @@
             // 
             // buttonAllEvents
             // 
-            buttonAllEvents.Anchor = AnchorStyles.Left;
+            buttonAllEvents.Anchor = AnchorStyles.Top;
             buttonAllEvents.FlatAppearance.BorderSize = 0;
             buttonAllEvents.FlatStyle = FlatStyle.Flat;
             buttonAllEvents.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -101,7 +101,7 @@
             // 
             // buttonOutdated
             // 
-            buttonOutdated.Anchor = AnchorStyles.Left;
+            buttonOutdated.Anchor = AnchorStyles.Top;
             buttonOutdated.FlatAppearance.BorderSize = 0;
             buttonOutdated.FlatStyle = FlatStyle.Flat;
             buttonOutdated.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -116,7 +116,7 @@
             // 
             // buttonCheckOverlays
             // 
-            buttonCheckOverlays.Anchor = AnchorStyles.Left;
+            buttonCheckOverlays.Anchor = AnchorStyles.Top;
             buttonCheckOverlays.FlatAppearance.BorderSize = 0;
             buttonCheckOverlays.FlatStyle = FlatStyle.Flat;
             buttonCheckOverlays.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -131,7 +131,7 @@
             // 
             // buttonCategories
             // 
-            buttonCategories.Anchor = AnchorStyles.Left;
+            buttonCategories.Anchor = AnchorStyles.Top;
             buttonCategories.FlatAppearance.BorderSize = 0;
             buttonCategories.FlatStyle = FlatStyle.Flat;
             buttonCategories.Font = new Font("Bahnschrift SemiCondensed", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -146,7 +146,7 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Left;
+            label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Agency FB", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(184, 176, 176);
@@ -158,7 +158,7 @@
             // 
             // panel4
             // 
-            panel4.Anchor = AnchorStyles.Left;
+            panel4.Anchor = AnchorStyles.Top;
             panel4.BackColor = Color.FromArgb(136, 120, 120);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(buttonSearch);
@@ -213,6 +213,7 @@
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top;
             panel3.BackColor = Color.FromArgb(40, 40, 40);
             panel3.Location = new Point(0, 63);
             panel3.Name = "panel3";
@@ -327,6 +328,7 @@
             // 
             // labelNoResults
             // 
+            labelNoResults.Anchor = AnchorStyles.Top;
             labelNoResults.AutoSize = true;
             labelNoResults.BackColor = Color.White;
             labelNoResults.Font = new Font("Bahnschrift SemiBold SemiConden", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 204);
