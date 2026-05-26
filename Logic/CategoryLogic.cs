@@ -8,7 +8,6 @@ using Diary.Storage;
 namespace Diary.Logic
 {
     //Бізнес-логіка для керування категоріями справ у щоденнику
-
     public class CategoryLogic
     {
         private readonly DataStorage memory;

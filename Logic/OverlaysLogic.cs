@@ -5,11 +5,16 @@ using Diary.EntityClass;
 
 namespace Diary.Logic
 {
+    //клас для зберігання результатів пошуку накладок між справами
     public class OverlaysResult
     {
+        //перший захід
         public Event EventA { get; }
+        //другий захід
         public Event EventB { get; }
+        //тривалість перетину у хвилинах
         public int OverlaysMinut { get; }
+        //ініціалізує результат накладки з двома заходами та тривалістю перетину
         public OverlaysResult(Event a,Event b, int minut)
         {
             EventA = a;
@@ -17,8 +22,11 @@ namespace Diary.Logic
             OverlaysMinut = minut;
         }
     }
+    //логіка для пошуку накладок між справами
     public class OverlaysLogic
     {
+        //знаходить всі пари справ, які перетинаються за часом
+        //для кожної пари обчислює тривалість перетину у хвилинах 
         public List<OverlaysResult> FindOverlays(List<Event> eve)
         {
             List<OverlaysResult> result = new();
