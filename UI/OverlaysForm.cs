@@ -28,8 +28,8 @@ namespace Diary.UI
             static string Short(string s) => s.Length > 25 ? s[..25] + "…" : s;
             foreach (OverlaysResult o in overlap)
                 listBoxOverlaps.Items.Add(
-                    $"«{Short(o.EventA.Title)}» ({o.EventA.Time:HH:mm}) та " +
-                    $"«{Short(o.EventB.Title)}» ({o.EventB.Time:HH:mm}) - {o.OverlaysMinut} хв.");
+                    $"«{Short(o.EventA.Title)}» ({o.EventA.Date:dd.MM} {o.EventA.Time:HH:mm}) та " +
+                    $"«{Short(o.EventB.Title)}» ({o.EventB.Date:dd.MM} {o.EventB.Time:HH:mm}) - {o.OverlaysMinut} хв.");
         }
         private void buttonClose_Click(object sender, EventArgs e) => Close();
 

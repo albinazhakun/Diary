@@ -160,8 +160,8 @@ namespace Diary.UI
         }
         private void buttonCheckOverlays_Click(object sender, EventArgs e)
         {
-            List<Event> todayEvents = eventLogic.GetDate(DateOnly.FromDateTime(DateTime.Now));
-            List<OverlaysResult> overlays = overlaysLogic.FindOverlays(todayEvents);
+            List<Event> allEvents = eventLogic.GetAllEvents();
+            List<OverlaysResult> overlays = overlaysLogic.FindOverlays(allEvents);
             using OverlaysForm form = new(overlays);
             form.ShowDialog();
         }

@@ -38,7 +38,7 @@ namespace Diary.Logic
                     Event b = eve[j];
                     TimeOnly start = a.Time > b.Time ? a.Time : b.Time;
                     TimeOnly end = a.EndTime < b.EndTime ? a.EndTime : b.EndTime;
-                    if (end> start)
+                    if (end> start && a.Date == b.Date)
                     {
                         int minut = (int)(end.ToTimeSpan() - start.ToTimeSpan()).TotalMinutes;
                         result.Add(new OverlaysResult(a, b, minut));
